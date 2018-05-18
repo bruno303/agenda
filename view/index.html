@@ -1,0 +1,49 @@
+
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    ID
+                                </th>
+                                <th>
+                                    Description
+                                </th>
+                                <th>
+                                    Date
+                                </th>
+                                <th>
+                                    Options
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {loop="$events"}
+                            <tr {if="$value.ACTIVE != 1"}class="danger"{/if}>
+                                <td>
+                                    {$value.ID_EVENT}
+                                </td>
+                                <td>
+                                    {$value.DESCRIPTION}
+                                </td>
+                                <td>
+                                    {$value.DT_EVENT}
+                                </td>
+                                <td>
+                                    <a href="/edeve/{$value.ID_EVENT}"><button class="btn btn-sm btn-primary">Edit</button></a>
+                                    {if="$value.ACTIVE == 1"}
+                                        <a href="/diseve/{$value.ID_EVENT}"><button class="btn btn-sm btn-danger">Disable</button></a>
+                                    {else}
+                                        <a href="/eneve/{$value.ID_EVENT}"><button class="btn btn-sm btn-danger">Enable</button></a>
+                                    {/if}
+                                </td>
+                            </tr>
+                            {/loop}
+                        </tbody>
+                    </table>
+                    <a href="/events"><button class="btn btn-default btn-large btn-block">Add Event</button></a>
+                </div>
+                <div class="col-md-3"></div>
+            </div>

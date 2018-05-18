@@ -1,0 +1,66 @@
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    ID
+                                </th>
+                                <th>
+                                    Name
+                                </th>
+                                <th>
+                                    RA
+                                </th>
+                                <th>
+                                    Login
+                                </th>
+                                <th>
+                                    Admin
+                                </th>
+                                <th>
+                                    Active
+                                </th>
+                                <th>
+                                    Options
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {loop="$user"}
+                            <tr {if="$value.ACTIVE != 1"}class="danger"{/if}>
+                                <td>
+                                    {$value.ID_STUDENT}
+                                </td>
+                                <td>
+                                    {$value.NAME}
+                                </td>
+                                <td>
+                                    {$value.RA}
+                                </td>
+                                <td>
+                                    {$value.LOGIN}
+                                </td>
+                                <td>
+                                    {$value.IS_ADMIN}
+                                </td>
+                                <td>
+                                    {$value.ACTIVE}
+                                </td>
+                                <td>
+                                    <a href="/eduse/{$value.ID_STUDENT}"><button class="btn btn-sm btn-primary">Edit</button></a>
+                                    {if="$value.ACTIVE == 1"}
+                                        <a href="/disuse/{$value.ID_STUDENT}"><button class="btn btn-sm btn-danger">Disable</button></a>
+                                    {else}
+                                        <a href="/enuse/{$value.ID_STUDENT}"><button class="btn btn-sm btn-danger">Enable</button></a>
+                                    {/if}
+                                </td>
+                            </tr>
+                            {/loop}
+                        </tbody>
+                    </table>
+                    <a href="/students"><button class="btn btn-default btn-large btn-block">Add Student</button></a>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
