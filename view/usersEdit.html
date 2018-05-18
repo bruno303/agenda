@@ -5,7 +5,7 @@
 		<div class="col-md-6">
 			<a href="/admin/students"><button class="btn btn-large btn-default">Back</button></a>
 			<br/><br/>
-			<form role="form" method="post" action="/students/{$ID_STUDENT}">
+			<form role="form" method="post" action="/students/{$ID_STUDENT}" onsubmit="return confirm('Deseja realmente alterar o registro?')">
 				<div class="form-group">
 					<label for="inpId">ID</label>
 					<input class="form-control" name="inpId" type="text" value="{$ID_STUDENT}" readonly="true" required="true" />

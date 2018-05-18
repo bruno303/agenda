@@ -5,7 +5,7 @@
 		<div class="col-md-6">
 			<a href="/admin/students"><button class="btn btn-large btn-default">Back</button></a>
 			<br/><br/>
-			<form role="form" method="post" action="/students">
+			<form role="form" method="post" action="/students" onsubmit="return confirm('Deseja realmente inserir o registro?')">
 				<div class="form-group">
 					<label for="inpName">Name</label>
 					<input class="form-control" name="inpName" type="text" required="true"/>

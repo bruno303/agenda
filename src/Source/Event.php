@@ -54,8 +54,8 @@ Class Event
 	public function update($params = array())
 	{
 		$sql = new Sql();
-		$sql->query(
-			"UPDATE EVENTS
+		$sql->query("
+			UPDATE EVENTS
 			SET DESCRIPTION = :description,
 				DT_EVENT = :dt_event,
 				ACTIVE = :active
@@ -66,6 +66,32 @@ Class Event
 			':id_event' => (int)$params['inpId'],
 			':id_student' => (int)$_SESSION['user']['id_student']]
 		);
+	}
+
+	public function search($params = array())
+	{
+		$sql = new Sql();
+		$description = $params['inpText'];
+		$data = $params['inpDate'];
+		$qrParams = [":student" => (int)$_SESSION['user']['id_student']];
+
+		$query = "
+			SELECT ID_EVENT, DESCRIPTION, DATE_FORMAT(DT_EVENT, '%d/%m/%Y') AS DT_EVENT, ACTIVE
+			FROM EVENTS
+			WHERE ID_STUDENT=:student";
+
+		if($description != "")
+		{
+			$query .= " AND DESCRIPTION LIKE :description";
+			$qrParams[':description'] = "%" . $description . "%";
+		}
+		if($data != "")
+		{
+			$query .= " AND CAST(DT_EVENT AS DATE)=:data";
+			$qrParams[':data'] = $data;
+		}
+		//debug($qrParams);
+		return $sql->select($query, $qrParams);
 	}
 }
 

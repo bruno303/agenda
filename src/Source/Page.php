@@ -23,6 +23,11 @@ class Page
         Tpl::configure( $config );
         $this->tpl = new Tpl;
 
+        foreach ($params as $key => $value)
+        {
+            $this->tpl->assign($key, $value);
+        }
+
         if($header === true)
         {
             $this->tpl->draw( "header" );
@@ -34,11 +39,6 @@ class Page
 
     public function body($templateName, $params = array())
     {
-        foreach ($params as $key => $value)
-        {
-            $this->tpl->assign($key, $value);
-        }
-
         $this->tpl->draw( $templateName );
     }
 

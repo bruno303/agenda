@@ -5,14 +5,14 @@
 		<div class="col-md-6">
 			<a href="/"><button class="btn btn-large btn-default">Back</button></a>
 			<br/><br/>
-			<form role="form" method="post" action="/events/">
+			<form role="form" method="post" action="/events/" onsubmit="return confirm('Deseja realmente inserir o registro?')">
 				<div class="form-group">
 					<label for="inpDescription">Description</label>
-					<input class="form-control" name="inpDescription" type="text"/>
+					<input class="form-control" name="inpDescription" type="text" required="true"/>
 				</div>
 				<div class="form-group">
 					<label for="inpDate">Date</label>
-					<input class="form-control" name="inpDate" type="date" />
+					<input class="form-control" name="inpDate" type="date" required="true"/>
 				</div>
 				<div class="checkbox">
 					<label><input type="checkbox" name="inpActive" checked="true" /> Active</label>

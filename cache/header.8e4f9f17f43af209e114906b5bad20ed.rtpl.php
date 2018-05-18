@@ -20,7 +20,22 @@
                         <div class="navbar-header">
                             <a class="navbar-brand" href="/">Agenda Online</a>
                         </div>
-                        
+                        <?php if( $showSearch == true ){ ?>
+                        <form class="navbar-form navbar-left" role="search" method="post" action="/search">
+                            <div class="form-group">
+                                <input class="form-control" type="text" name="inpText" />
+                            </div> 
+                            <div class="form-group">
+                                <input class="form-control" type="date" name="inpDate" />
+                            </div> 
+                            <button type="submit" class="btn btn-default">Search Text</button>
+                        </form>
+                        <?php if( $showclear == true ){ ?>
+                        <div class="navbar-form navbar-left">
+                            <a href="/"><button class="btn btn-danger">Clear</button></a>
+                        </div>
+                        <?php } ?>
+                        <?php } ?>
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul class="nav navbar-nav navbar-right">
                                 <?php if( $_SESSION['user']['is_admin'] == true ){ ?><li><a href="/admin">Admin</a></li><?php } ?>

@@ -5,7 +5,7 @@
 		<div class="col-md-6">
 			<a href="/"><button class="btn btn-large btn-default">Back</button></a>
 			<br/><br/>
-			<form role="form" method="post" action="/events/<?php echo htmlspecialchars( $ID_EVENT, ENT_COMPAT, 'UTF-8', FALSE ); ?>">
+			<form role="form" method="post" action="/events/<?php echo htmlspecialchars( $ID_EVENT, ENT_COMPAT, 'UTF-8', FALSE ); ?>" onsubmit="return confirm('Deseja realmente alterar o registro?')">
 				<div class="form-group">
 					<label for="inpId">ID</label>
 					<input class="form-control" name="inpId" type="text" value="<?php echo htmlspecialchars( $ID_EVENT, ENT_COMPAT, 'UTF-8', FALSE ); ?>" readonly="true" required="true" />
