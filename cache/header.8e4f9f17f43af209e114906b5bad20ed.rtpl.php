@@ -28,7 +28,7 @@
                             <div class="form-group">
                                 <input class="form-control" type="date" name="inpDate" />
                             </div> 
-                            <button type="submit" class="btn btn-default">Search Text</button>
+                            <button type="submit" class="btn btn-default">Search</button>
                         </form>
                         <?php if( $showclear == true ){ ?>
                         <div class="navbar-form navbar-left">
