@@ -83,11 +83,6 @@ $app->post('/events[/]', function()
     redirect('/');
 });
 
-$app->get('/teste[/]', function()
-{
-    echo "Teste!";
-});
-
 $app->get('/diseve/{id_event}[/]', function(Request $request, Response $response, array $args)
 {
     User::verifyLogin();
